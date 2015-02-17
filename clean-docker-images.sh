@@ -2,7 +2,7 @@
 
 # This script will check if there are any <none> tagged
 # images on the top level of docker images.
-# The reason this happens is because using fig build
+# The reason this happens is because using docker build
 # multiple times it untagges the images setting it to
 # <none> and creates a new build with their right tags
 # and making a mess from your docker images list.
