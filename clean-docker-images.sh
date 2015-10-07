@@ -7,12 +7,12 @@
 # <none> and creates a new build with their right tags
 # and making a mess from your docker images list.
 
-IMAGES=$(docker images | grep none)
+IMAGES=$(docker images | grep "^<none>")
 
 if [ "$IMAGES" != "" ];
   then
     printf "Found images tagged with <none> \n Trying to remove them now...\n"
-    docker rmi -f $(docker images | grep none | awk '{ print $3 }')
+    docker rmi -f $(docker images | grep "^<none>" | awk '{ print $3 }')
     printf "Done removing images tagged with <none>!\n"
   else
     printf "There are no images tagged as <none>\n"
