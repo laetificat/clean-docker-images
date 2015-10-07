@@ -11,7 +11,7 @@ IMAGES=$(docker images | grep "^<none>")
 
 if [ "$IMAGES" != "" ];
   then
-    printf "Found images tagged with <none> \n Trying to remove them now...\n"
+    printf "Found images tagged with <none> \nTrying to remove them now...\n"
     docker rmi -f $(docker images | grep "^<none>" | awk '{ print $3 }')
     printf "Done removing images tagged with <none>!\n"
   else
